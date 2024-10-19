@@ -1,4 +1,4 @@
-const apiKey = 'dded9179c9c834f3bc04e988c0cf14a4'; 
+const apiKey = 'dded9179c9c834f3bc04e988c0cf14a4'; // Replace with your TMDb API key
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const moviesContainer = document.getElementById('movies-container');
@@ -11,17 +11,17 @@ searchButton.addEventListener('click', () => {
   }
 });
 
-// Fetch movies from OMDb API
+// Fetch movies from TMDb API
 async function searchMovies(query) {
-  const url = `https://www.omdbapi.com/?s=${query}&apikey=${apiKey}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
     
-    if (data.Response === 'True') {
-      displayMovies(data.Search);
+    if (data.results.length > 0) {
+      displayMovies(data.results);
     } else {
-      moviesContainer.innerHTML = `<p>${data.Error}</p>`;
+      moviesContainer.innerHTML = `<p>No results found</p>`;
     }
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -36,9 +36,9 @@ function displayMovies(movies) {
     const movieElement = document.createElement('div');
     movieElement.classList.add('movie');
     movieElement.innerHTML = `
-      <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
-      <h3>${movie.Title}</h3>
-      <p>Year: ${movie.Year}</p>
+      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+      <h3>${movie.title}</h3>
+      <p>Year: ${movie.release_date ? movie.release_date.split('-')[0] : 'N/A'}</p>
     `;
     moviesContainer.appendChild(movieElement);
   });
