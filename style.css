@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("./image.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  h1 {
+    font-family: 'Arial Black', sans-serif; /* Bold, sans-serif font similar to Netflix */
+    font-size: 48px; /* Adjust size to suit your design */
+    color: #E50914; /* Netflix red color */
+    letter-spacing: 2px; /* Slight letter spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  
+  
+  .container {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #search-input {
+    width: 60%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px; /* Circular edges */
+    border: 1px solid #ccc; /* Light border */
+    outline: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Black shadow */
+    transition: transform 0.3s ease; /* Smooth transition for zoom */
+  }
+  #search-input::placeholder {
+    color: #E50914; /* Netflix red */
+  }
+  
+  #search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #E50914; /* Netflix red */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Circular edges to match the input */
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Black shadow */
+    margin-left: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for zoom */
+  }
+  #search-input:hover, #search-button:hover {
+    transform: scale(1.05); 
+  }
+  
+  
+  #search-input:active, #search-button:active {
+    transform: scale(0.95); 
+  }
+  
+  #movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .movie {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+  }
+  
+  .movie img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .movie h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
